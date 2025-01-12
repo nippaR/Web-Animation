@@ -1,11 +1,41 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const variantContainer = {
+    hidden :{
+        fontSize:'50px', color:'black',y:0
+    },
+
+    visible :{
+        fontSize:'100px', color:'red',y:50,
+        transition: {duration: 2, delay: 0.5, type: 'spring', stiffness: 120 }
+    }
+}
+
+const variantButton = {
+    visible :{
+        whileHover: {scale:1.5, color:'black', originX:0, originY:0}
+    }
+}
 function First() {
     return (
 
         <div>
-            <motion.h2 animate={{fontSize:100, color:'#ffff66',y:50}}>First Page</motion.h2>
+            <motion.h2  variants={variantContainer}
+                        initial = {'hidden'}
+                        animate={'visible'}
+                        
+            
+            
+            >
+                First Page
+            </motion.h2>
+
+            <motion.button variants={variantButton} whileHover={'visible'}>
+
+                Click Me
+
+            </motion.button>
 
         </div>
     );
